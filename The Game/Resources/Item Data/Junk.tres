@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ct0f74jo1gsjx"]
+
+[ext_resource type="Texture2D" uid="uid://ybsydj7sv3vb" path="res://Pix n Stuff/In Use/Weapon_Polearm_Head_R.png" id="1_a2auf"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/Item.gd" id="1_capcd"]
+
+[resource]
+script = ExtResource("1_capcd")
+displayName = "Junk"
+icon = ExtResource("1_a2auf")
+maxStackSize = 1
+itemDescribtion = ""
+itemValue = 100
+itemRarity = "Common"

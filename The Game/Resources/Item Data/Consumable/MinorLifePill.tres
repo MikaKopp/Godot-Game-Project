@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ConsumableItem" load_steps=4 format=3 uid="uid://bc2m07xxsh84f"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/ConsumableEffect.gd" id="1_crn8f"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/ConsumableItem.gd" id="2_2glbh"]
+[ext_resource type="Texture2D" uid="uid://nglcvyvgf0xk" path="res://Pix n Stuff/In Use/Metal_Beads_R.png" id="2_05j4v"]
+
+[resource]
+script = ExtResource("2_2glbh")
+stat_modifiers = {
+"lifeSpan": 5
+}
+consumeEffects = Array[ExtResource("1_crn8f")]([])
+displayName = "Life Pill"
+icon = ExtResource("2_05j4v")
+maxStackSize = 99
+itemDescribtion = "This item will add some years to your lifespan"
+itemValue = 10069
+itemRarity = "Mythical"

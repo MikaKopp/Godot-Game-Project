@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmaqb0cx6pear"]
+
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/Player.gd" id="1_l5uqd"]
+[ext_resource type="Resource" uid="uid://brjcun6x3c5c0" path="res://Resources/Cultivation Methods/Method Res/BasicManual.tres" id="2_owmnb"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/CultivationMethod.gd" id="2_qe7ma"]
+[ext_resource type="PackedScene" uid="uid://cpjfbx12y5t31" path="res://Scenes/Player_Screens.tscn" id="3_n37we"]
+[ext_resource type="PackedScene" uid="uid://cf7tngurq4kko" path="res://Scenes/CharacterScreen.tscn" id="8_ig57b"]
+
+[node name="Player" type="Node2D" node_paths=PackedStringArray("playerScreen")]
+script = ExtResource("1_l5uqd")
+playerScreen = NodePath("CanvasLayer/PlayerScreens")
+startingCultivationMethod = Array[ExtResource("2_qe7ma")]([ExtResource("2_owmnb")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CharacterScreen" parent="CanvasLayer" instance=ExtResource("8_ig57b")]
+unique_name_in_owner = true
+
+[node name="PlayerScreens" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("3_n37we")]
+unique_name_in_owner = true
+player = NodePath("../..")

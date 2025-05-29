@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="MethodTrait" load_steps=5 format=3 uid="uid://rqyjhtmc0psp"]
+
+[ext_resource type="Texture2D" uid="uid://cnc7rnvm5jryj" path="res://Pix n Stuff/In Use/29.png" id="1_fu6w8"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/TraitEffect.gd" id="1_omokw"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/MethodTrait.gd" id="1_rx86w"]
+
+[sub_resource type="Resource" id="Resource_o46bv"]
+script = ExtResource("1_omokw")
+targetAtribute = "STRENGTH"
+value = 5.0
+
+[resource]
+script = ExtResource("1_rx86w")
+myName = "Strength Boost"
+icon = ExtResource("1_fu6w8")
+myListOrder = 0
+prerequisiteTraits = Array[ExtResource("1_rx86w")]([])
+unlockRealm = "Realm 1"
+myDescription = "This is the first pickable trait in this method and it gives you small boost to strength"
+effects = Array[ExtResource("1_omokw")]([SubResource("Resource_o46bv")])

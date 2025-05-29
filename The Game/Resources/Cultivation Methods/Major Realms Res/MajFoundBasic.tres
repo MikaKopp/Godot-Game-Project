@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MajorStage" load_steps=7 format=3 uid="uid://1dp5nn5l11lh"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/MinorRealm.gd" id="2_p8rvm"]
+[ext_resource type="Resource" uid="uid://dgtqdvbbrygem" path="res://Resources/Cultivation Methods/Minor Realm Res/FoundLowBasic.tres" id="3_du2lk"]
+[ext_resource type="Resource" uid="uid://dw35xcw8r5fxh" path="res://Resources/Cultivation Methods/Minor Realm Res/FoundMedBasic.tres" id="4_h2q1n"]
+[ext_resource type="Resource" uid="uid://cmoncvu6c551e" path="res://Resources/Cultivation Methods/Minor Realm Res/FoundPeakBasic.tres" id="5_aaw4q"]
+[ext_resource type="Resource" uid="uid://0oth5ut81rb1" path="res://Resources/Cultivation Methods/Minor Realm Res/FoundCoreFormatBasic.tres" id="6_rgcf3"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/MajorRealm.gd" id="7_4j32n"]
+
+[resource]
+script = ExtResource("7_4j32n")
+displayName = "Foundation Establishment"
+myMinorStages = Array[ExtResource("2_p8rvm")]([ExtResource("3_du2lk"), ExtResource("4_h2q1n"), ExtResource("5_aaw4q"), ExtResource("6_rgcf3")])

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfwodsd24y8d2"]
+
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/TraitButton.gd" id="1_1flhj"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_k1c3e"]
+allow_unpress = true
+
+[node name="TraitBtn" type="Button"]
+custom_minimum_size = Vector2(128, 64)
+offset_right = 128.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 32
+toggle_mode = true
+button_group = SubResource("ButtonGroup_k1c3e")
+text = "Trait "
+script = ExtResource("1_1flhj")

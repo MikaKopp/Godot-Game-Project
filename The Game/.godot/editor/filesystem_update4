@@ -1,0 +1,26 @@
+res://Scenes/Main.tscn
+res://Resources/Cultivation Methods/Method Traits/BasicFirstTrait.tres
+res://Resources/Cultivation Methods/Method Res/BasicManual.tres
+res://Resources/Item Data/Junk.tres
+res://Resources/Item Data/Consumable/MinorStrengthPill.tres
+res://Resources/Item Data/Consumable/MinorLifePill.tres
+res://Scripts/Scene Scripts/CharacterCreator.gd
+res://Scenes/CharacterScreen.tscn
+res://Scenes/world.tscn
+res://Scenes/Player_Base.tscn
+res://Scenes/Game_Manager.tscn
+res://Scenes/Main_Menu.tscn
+res://Scenes/character_creator.tscn
+res://Scenes/Trait_Btn.tscn
+res://Scenes/Tile_Info_Window.tscn
+res://Scenes/Player_Screens.tscn
+res://Scenes/InventorySlot.tscn
+res://Scenes/Item_Tool_Tip_Window.tscn
+res://Scenes/player.tscn
+res://Scenes/Equipment_Slot.tscn
+res://Scenes/Active_Path_Btn.tscn
+res://Scenes/Path_Trait_Btn.tscn
+res://Scenes/Realm_Grid.tscn
+res://Scenes/Realm_Lbl.tscn
+res://Scenes/Random_Event_Window.tscn
+res://Scenes/Event_Choice_Btn.tscn

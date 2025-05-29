@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MinorStage" load_steps=2 format=3 uid="uid://cnt267cravsta"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/MinorRealm.gd" id="1_fcutx"]
+
+[resource]
+script = ExtResource("1_fcutx")
+displayName = "Peak Stage"
+xpToLevel = 200000

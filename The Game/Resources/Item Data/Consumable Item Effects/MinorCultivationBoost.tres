@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ConsumableEffect" load_steps=2 format=3 uid="uid://d2fxypqtyxv73"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/ConsumableEffect.gd" id="1_pu72b"]
+
+[resource]
+script = ExtResource("1_pu72b")
+displayName = "Minor Cultivation Boost"
+effectValue = 100
+effectedStat = "CultivationXp"

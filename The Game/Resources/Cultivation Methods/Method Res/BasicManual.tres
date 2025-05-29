@@ -1,0 +1,75 @@
+[gd_resource type="Resource" script_class="CultivationMethod" load_steps=15 format=3 uid="uid://brjcun6x3c5c0"]
+
+[ext_resource type="Texture2D" uid="uid://bq2n1fgjjujav" path="res://Pix n Stuff/In Use/Magic_Meditate_T.png" id="1_f6s7m"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/MethodTrait.gd" id="1_ln4m2"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/CultivationMethod.gd" id="2_3xg85"]
+[ext_resource type="Resource" uid="uid://rqyjhtmc0psp" path="res://Resources/Cultivation Methods/Method Traits/BasicFirstTrait.tres" id="2_tcmpq"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/TraitEffect.gd" id="3_3gkas"]
+[ext_resource type="Texture2D" uid="uid://cnc7rnvm5jryj" path="res://Pix n Stuff/In Use/29.png" id="4_3i4hn"]
+
+[sub_resource type="Resource" id="Resource_c6mbs"]
+script = ExtResource("3_3gkas")
+targetAtribute = "AGILITY"
+value = 5.0
+
+[sub_resource type="Resource" id="Resource_0p17v"]
+script = ExtResource("1_ln4m2")
+myName = "Agility Boost"
+icon = ExtResource("4_3i4hn")
+myListOrder = 1
+prerequisiteTraits = Array[ExtResource("1_ln4m2")]([])
+unlockRealm = "Realm 1"
+myDescription = "Small boost to Agility"
+effects = Array[ExtResource("3_3gkas")]([SubResource("Resource_c6mbs")])
+
+[sub_resource type="Resource" id="Resource_g7s5b"]
+script = ExtResource("3_3gkas")
+targetAtribute = "STRENGTH"
+value = 10.0
+
+[sub_resource type="Resource" id="Resource_k53ev"]
+script = ExtResource("1_ln4m2")
+myName = "Advanced Strength "
+icon = ExtResource("4_3i4hn")
+myListOrder = 2
+prerequisiteTraits = Array[ExtResource("1_ln4m2")]([ExtResource("2_tcmpq")])
+unlockRealm = "Realm 1"
+myDescription = "Second boost to strength"
+effects = Array[ExtResource("3_3gkas")]([SubResource("Resource_g7s5b")])
+
+[sub_resource type="Resource" id="Resource_ed7l4"]
+script = ExtResource("3_3gkas")
+targetAtribute = "ENERGY"
+value = 1000.0
+
+[sub_resource type="Resource" id="Resource_kxxup"]
+script = ExtResource("1_ln4m2")
+myName = "Bigger Energy Reserve"
+icon = ExtResource("4_3i4hn")
+myListOrder = 3
+prerequisiteTraits = Array[ExtResource("1_ln4m2")]([])
+unlockRealm = "Realm 1"
+myDescription = "Adds moderate boost to users energy reserve"
+effects = Array[ExtResource("3_3gkas")]([SubResource("Resource_ed7l4")])
+
+[sub_resource type="Resource" id="Resource_ca3v3"]
+script = ExtResource("3_3gkas")
+targetAtribute = "LUCK"
+value = 100.0
+
+[sub_resource type="Resource" id="Resource_d0n1n"]
+script = ExtResource("1_ln4m2")
+myName = "Luck Improvement"
+icon = ExtResource("4_3i4hn")
+myListOrder = 4
+prerequisiteTraits = Array[ExtResource("1_ln4m2")]([])
+unlockRealm = "Realm 2"
+myDescription = "Sizable boost to users luck"
+effects = Array[ExtResource("3_3gkas")]([SubResource("Resource_ca3v3")])
+
+[resource]
+script = ExtResource("2_3xg85")
+displayName = "Basic Manual"
+icon = ExtResource("1_f6s7m")
+methodTraits = Array[ExtResource("1_ln4m2")]([ExtResource("2_tcmpq"), SubResource("Resource_0p17v"), SubResource("Resource_k53ev"), SubResource("Resource_kxxup"), SubResource("Resource_d0n1n")])
+myType = "Main"

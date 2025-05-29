@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://c84qis3qxapwo"]
+
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/InventoryOld.gd" id="1_5bxct"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/Item.gd" id="2_0soxt"]
+[ext_resource type="Resource" uid="uid://pn01blty7ndh" path="res://Resources/Item Data/Pill.tres" id="3_54fov"]
+[ext_resource type="Resource" uid="uid://ct0f74jo1gsjx" path="res://Resources/Item Data/Junk.tres" id="4_w4x6t"]
+[ext_resource type="Resource" uid="uid://5kt5ixkt8p1f" path="res://Resources/Item Data/Stick.tres" id="5_aw1yv"]
+[ext_resource type="PackedScene" uid="uid://cn1gbabfjxn8q" path="res://Scenes/InventorySlot.tscn" id="6_qjkkn"]
+
+[node name="Inventory" type="Node"]
+script = ExtResource("1_5bxct")
+starter_items = Array[ExtResource("2_0soxt")]([ExtResource("3_54fov"), ExtResource("4_w4x6t"), ExtResource("5_aw1yv")])
+
+[node name="InventoryWindow" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -184.0
+offset_right = 280.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlotContainer" type="GridContainer" parent="InventoryWindow"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -156.0
+offset_right = 260.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5
+
+[node name="InventorySlot" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="InventoryWindow/SlotContainer" instance=ExtResource("6_qjkkn")]
+layout_mode = 2
+
+[node name="InfoText" type="Label" parent="InventoryWindow"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -33.0
+offset_right = 560.0
+grow_vertical = 0
+horizontal_alignment = 1

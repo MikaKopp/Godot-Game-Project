@@ -1,0 +1,1178 @@
+[gd_scene load_steps=23 format=3 uid="uid://cpjfbx12y5t31"]
+
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/PlayerScreens.gd" id="1_f2eqg"]
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/Inventory.gd" id="1_qsq2e"]
+[ext_resource type="Texture2D" uid="uid://cnhvyv7lutf7u" path="res://Pix n Stuff/In Use/shop_img_coin_01.png" id="1_r5olh"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/Item.gd" id="2_8ui3s"]
+[ext_resource type="Texture2D" uid="uid://b6xkgp5ry51kr" path="res://Pix n Stuff/In Use/shop_img_gem_01.png" id="2_lutjw"]
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/CharacterPanel.gd" id="2_uftve"]
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/StatsLblPanel.gd" id="3_ncnh8"]
+[ext_resource type="Resource" uid="uid://pn01blty7ndh" path="res://Resources/Item Data/Pill.tres" id="3_vrf7r"]
+[ext_resource type="Resource" uid="uid://5kt5ixkt8p1f" path="res://Resources/Item Data/Stick.tres" id="4_1n7sy"]
+[ext_resource type="Resource" uid="uid://ct0f74jo1gsjx" path="res://Resources/Item Data/Junk.tres" id="5_icqi4"]
+[ext_resource type="PackedScene" uid="uid://x38tw6b5se30" path="res://Scenes/Equipment_Slot.tscn" id="7_vnkjc"]
+[ext_resource type="PackedScene" uid="uid://dybvnqe2mqpse" path="res://Scenes/Item_Tool_Tip_Window.tscn" id="9_l83ey"]
+[ext_resource type="Resource" uid="uid://cli1v7wps2qxh" path="res://Resources/Item Data/Consumable/MinorStrengthPill.tres" id="10_xo0p6"]
+[ext_resource type="Resource" uid="uid://wvcbc6ta7s7v" path="res://Resources/Item Data/Equipment/Sword.tres" id="10_xs7vv"]
+[ext_resource type="Resource" uid="uid://bc2m07xxsh84f" path="res://Resources/Item Data/Consumable/MinorLifePill.tres" id="11_cq0ia"]
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/CultivationScreen.gd" id="12_wqen6"]
+[ext_resource type="Texture2D" uid="uid://ddnlxpc0oth7u" path="res://Pix n Stuff/GUI/citadel-rpg-gui/Citadel RPG GUI/Sliced/Box - Inventory/slot_empty.png" id="13_7m8ss"]
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/PathsTraitsPanel.gd" id="13_25620"]
+[ext_resource type="Texture2D" uid="uid://d1n5qoffmvj8" path="res://Pix n Stuff/GUI/citadel-rpg-gui/Citadel RPG GUI/Sliced/Box - Character Sheet/char_example.png" id="17_ncn56"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_nbjov"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_dd0sf"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_qxhby"]
+
+[node name="PlayerScreens" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f2eqg")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="NavButtonBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+alignment = 1
+
+[node name="CharacterNavBtn" type="Button" parent="PanelContainer/VBoxContainer/NavButtonBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_nbjov")
+text = "Character"
+
+[node name="InventoryNavBtn" type="Button" parent="PanelContainer/VBoxContainer/NavButtonBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_nbjov")
+text = "Inventory"
+
+[node name="CultivationNavBtn" type="Button" parent="PanelContainer/VBoxContainer/NavButtonBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_nbjov")
+text = "Cultivation"
+
+[node name="JournalNavBtn" type="Button" parent="PanelContainer/VBoxContainer/NavButtonBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_nbjov")
+text = "Journal"
+
+[node name="CharacterPanel" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_uftve")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="StatsLblVBox" type="VBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+script = ExtResource("3_ncnh8")
+
+[node name="TitleLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Character Attributes & Stats"
+
+[node name="FundamentalTitle" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Fundamentals"
+
+[node name="FundamentalSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="lifeSpanBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="lifeSpanLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/lifeSpanBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Lifespan : "
+
+[node name="lifeSpanValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/lifeSpanBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="ageBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="ageLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/ageBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Age :"
+
+[node name="ageValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/ageBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="hpBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="hpLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/hpBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Hitpoints :"
+
+[node name="hpValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/hpBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="energyBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="energyLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/energyBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Energy :"
+
+[node name="energyValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/energyBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="physicalEmpty" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "
+"
+
+[node name="physicalTitleLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Physical"
+
+[node name="physicalSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="vitalityBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="vitalityLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/vitalityBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Vitality : "
+
+[node name="vitalityValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/vitalityBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="strengthBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="strengthLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/strengthBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Strength :"
+
+[node name="strengthValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/strengthBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="enduranceBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="enduranceLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/enduranceBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Endurance :"
+
+[node name="enduranceValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/enduranceBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="agilityBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="agilityLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/agilityBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Agility :"
+
+[node name="agilityValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/agilityBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="constitutionBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="constitutionLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/constitutionBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Constitution :"
+
+[node name="constitutionValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/constitutionBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="mentalEmpty" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "
+"
+
+[node name="mentalTitleLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Mental"
+
+[node name="mentalSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="mindBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="mindLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/mindBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Mind :"
+
+[node name="mindValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/mindBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="intelligenceBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="intelligenceLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/intelligenceBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Intelligence :"
+
+[node name="intelligenceValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/intelligenceBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="comprehencionBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="comprehencionLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/comprehencionBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Comprehencion :"
+
+[node name="comprehencionValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/comprehencionBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="perceptionBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="perceptionLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/perceptionBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Perception :"
+
+[node name="perceptionValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/perceptionBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="spiritualEmpty" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "
+"
+
+[node name="spiritualTitleLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Spiritual "
+
+[node name="SpiritualSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="spiritualSenseBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="spiritualSenseLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/spiritualSenseBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Spiritual Sense : "
+
+[node name="spiritualSenseValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/spiritualSenseBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="willpowerBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="willpowerLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/willpowerBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Willpower "
+
+[node name="willpowerValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/willpowerBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="soulSenseBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="soulSenseLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/soulSenseBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Soul Sense :"
+
+[node name="soulSenseValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/soulSenseBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="socialEmpty" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "
+"
+
+[node name="socialTitleLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Social"
+
+[node name="socialSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="charismaBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="charismaLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/charismaBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Charisma :"
+
+[node name="charismaValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/charismaBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="insightBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="insightLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/insightBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Insight :"
+
+[node name="insightValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/insightBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="leadershipBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="leadershipLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/leadershipBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Leadership :"
+
+[node name="leadershipValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/leadershipBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="fateEmpty" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "
+"
+
+[node name="fateBox" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Growth & Fate"
+
+[node name="HSeparator6" type="HSeparator" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="potentialBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="potentialLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/potentialBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Potential :"
+
+[node name="potentialValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/potentialBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="destinyBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="destinyLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/destinyBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Destiny :"
+
+[node name="destinyValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/destinyBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="luckBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="luckLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/luckBox"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Luck :"
+
+[node name="luckValueLbl" type="Label" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer/ScrollContainer/MarginContainer/StatsLblVBox/luckBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer/CharacterPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InventoryPanel" type="PanelContainer" parent="PanelContainer/VBoxContainer" node_paths=PackedStringArray("tooltip_window")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_qsq2e")
+starter_items = Array[ExtResource("2_8ui3s")]([ExtResource("4_1n7sy"), ExtResource("4_1n7sy"), ExtResource("5_icqi4"), ExtResource("5_icqi4"), ExtResource("5_icqi4"), ExtResource("5_icqi4"), ExtResource("5_icqi4"), ExtResource("5_icqi4"), ExtResource("5_icqi4"), ExtResource("5_icqi4"), ExtResource("5_icqi4"), ExtResource("3_vrf7r"), ExtResource("3_vrf7r"), ExtResource("3_vrf7r"), ExtResource("10_xs7vv"), ExtResource("10_xo0p6"), ExtResource("11_cq0ia"), ExtResource("10_xo0p6"), ExtResource("11_cq0ia")])
+tooltip_window = NodePath("../../../ItemToolTipWindow")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/InventoryPanel"]
+layout_mode = 2
+
+[node name="LeftSideOfInventory" type="VBoxContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EquipmentGrid1" type="GridContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="EquipmentSlot" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid1" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Helmet"
+
+[node name="EquipmentSlot2" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid1" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotDefaultIcon = ExtResource("13_7m8ss")
+slotType = "Body"
+
+[node name="EquipmentSlot3" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid1" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Arms"
+
+[node name="EquipmentSlot4" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid1" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Gloves"
+
+[node name="EquipmentSlot5" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid1" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Legs"
+
+[node name="EquipmentSlot6" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid1" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Feet"
+
+[node name="EquipmentGrid2" type="GridContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="EquipmentSlot" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid2" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Face"
+
+[node name="EquipmentSlot2" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid2" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Cape"
+
+[node name="EquipmentSlot3" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid2" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotDefaultIcon = ExtResource("13_7m8ss")
+slotType = "Body Secondary"
+
+[node name="EquipmentSlot4" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid2" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Belt"
+
+[node name="EquipmentSlot5" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid2" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Legs Secondary"
+
+[node name="EquipmentSlot6" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid2" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Feet Secondary"
+
+[node name="CharacterPortraitPanel" type="Panel" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterPortraitImage" type="TextureRect" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/CharacterPortraitPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_ncn56")
+stretch_mode = 5
+
+[node name="EquipmentGrid3" type="GridContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="EquipmentSlot" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid3" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Ring One"
+
+[node name="EquipmentSlot2" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid3" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Ring Two"
+
+[node name="EquipmentSlot3" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid3" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Ring Three"
+
+[node name="EquipmentSlot4" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid3" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Ring Four"
+
+[node name="EquipmentSlot5" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid3" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Trinket One"
+
+[node name="EquipmentSlot6" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid3" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Trinket Two"
+
+[node name="EquipmentGrid4" type="GridContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="EquipmentSlot" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid4" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Neck"
+
+[node name="EquipmentSlot2" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid4" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Neck Secondary"
+
+[node name="EquipmentSlot3" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid4" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Bracelet One"
+
+[node name="EquipmentSlot4" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid4" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Bracelet Two"
+
+[node name="EquipmentSlot5" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid4" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Trinket Three"
+
+[node name="EquipmentSlot6" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/EquipmentGrid4" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Trinket Four"
+
+[node name="EquipmentGrid5" type="GridContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+columns = 9
+
+[node name="EquipmentSlot6" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/EquipmentGrid5" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Main Weapon"
+
+[node name="EquipmentSlot7" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/EquipmentGrid5" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Off-Hand"
+
+[node name="EquipmentSlot8" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/EquipmentGrid5" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Ranged Weapon"
+
+[node name="EquipmentSlot9" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/EquipmentGrid5" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Hidden Weapon"
+
+[node name="EquipmentSlot10" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/EquipmentGrid5" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Support Artifact One"
+
+[node name="EquipmentSlot11" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/EquipmentGrid5" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Support Artifact Two"
+
+[node name="EquipmentSlot12" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/EquipmentGrid5" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Support Artifact Three"
+
+[node name="EquipmentSlot13" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/PanelContainer/VBoxContainer/EquipmentGrid5" instance=ExtResource("7_vnkjc")]
+layout_mode = 2
+slotType = "Support Artifact Four"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/LeftSideOfInventory/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 24
+text = "This will contain very detailed description of something something. Lorem ipsum or something
+"
+
+[node name="RightSideOfInventory" type="VBoxContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory"]
+custom_minimum_size = Vector2(0, 64)
+layout_direction = 3
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "999"
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_r5olh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EmptySpace" type="TextureRect" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "999"
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/HBoxContainer"]
+modulate = Color(3.08037e-06, 0.998013, 0.982356, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_lutjw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory"]
+custom_minimum_size = Vector2(0, 48)
+layout_direction = 1
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "Filters"
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 24
+text = "Sorting"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="NavButtonBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/MarginContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="EquipmentFilterBtn" type="Button" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/MarginContainer/NavButtonBox"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_dd0sf")
+text = "Equipment"
+
+[node name="MedicineFilterBtn" type="Button" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/MarginContainer/NavButtonBox"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_dd0sf")
+text = "Medicine"
+
+[node name="ManualsFilterBtn" type="Button" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/MarginContainer/NavButtonBox"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_dd0sf")
+text = "Manuals"
+
+[node name="MiscFilterBtn" type="Button" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/MarginContainer/NavButtonBox"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_dd0sf")
+text = "Misc"
+
+[node name="MenuButton" type="MenuButton" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/MarginContainer/NavButtonBox"]
+custom_minimum_size = Vector2(128, 64)
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "By Value"
+
+[node name="InventorySlotWindow" type="Panel" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/InventorySlotWindow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlotContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/InventoryPanel/HBoxContainer/RightSideOfInventory/InventorySlotWindow/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 8
+
+[node name="CultivationPanel" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("12_wqen6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/CultivationPanel"]
+layout_mode = 2
+
+[node name="NavButtonBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+alignment = 1
+
+[node name="ActivePathsBtn" type="Button" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/NavButtonBox"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_qxhby")
+text = "Active Paths"
+
+[node name="BookLibraryBtn" type="Button" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/NavButtonBox"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_qxhby")
+text = "Book Library"
+
+[node name="ActivePathPanel" type="Panel" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.66
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Active Cultivation Methods"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel/HBoxContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel/HBoxContainer/VBoxContainer/ScrollContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="MainArtsLbl" type="Label" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel/HBoxContainer/VBoxContainer/ScrollContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Arts"
+
+[node name="MainArtsGrid" type="GridContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel/HBoxContainer/VBoxContainer/ScrollContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 5
+
+[node name="MeditationArtsLbl" type="Label" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel/HBoxContainer/VBoxContainer/ScrollContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Meditation Arts"
+
+[node name="MeditationArtsGrid" type="GridContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel/HBoxContainer/VBoxContainer/ScrollContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+
+[node name="MobilityArtsLbl" type="Label" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel/HBoxContainer/VBoxContainer/ScrollContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mobility Arts"
+
+[node name="MobilityArtsGrid" type="GridContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel/HBoxContainer/VBoxContainer/ScrollContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+
+[node name="WeaponArtsLbl" type="Label" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel/HBoxContainer/VBoxContainer/ScrollContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Weapon Arts"
+
+[node name="WeaponArtsGrid" type="GridContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/ActivePathPanel/HBoxContainer/VBoxContainer/ScrollContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+
+[node name="BookLibraryPanel" type="Panel" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PathsTraitsPanel" type="Panel" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("13_25620")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/PathsTraitsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/PathsTraitsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.66
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/PathsTraitsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/PathsTraitsPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Choosable traits"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/PathsTraitsPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/PathsTraitsPanel/HBoxContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TraitVBox" type="VBoxContainer" parent="PanelContainer/VBoxContainer/CultivationPanel/VBoxContainer/PathsTraitsPanel/HBoxContainer/VBoxContainer/ScrollContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="JournalPanel" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemToolTipWindow" parent="." instance=ExtResource("9_l83ey")]
+visible = false
+layout_mode = 1
+offset_left = -398.0
+offset_top = 11.0
+offset_right = -398.0
+offset_bottom = 11.0
+
+[connection signal="toggled" from="PanelContainer/VBoxContainer/NavButtonBox/CharacterNavBtn" to="." method="_on_character_nav_btn_toggled"]
+[connection signal="toggled" from="PanelContainer/VBoxContainer/NavButtonBox/InventoryNavBtn" to="." method="_on_inventory_nav_btn_toggled"]
+[connection signal="toggled" from="PanelContainer/VBoxContainer/NavButtonBox/CultivationNavBtn" to="." method="_on_cultivation_nav_btn_toggled"]
+[connection signal="toggled" from="PanelContainer/VBoxContainer/NavButtonBox/JournalNavBtn" to="." method="_on_journal_nav_btn_toggled"]

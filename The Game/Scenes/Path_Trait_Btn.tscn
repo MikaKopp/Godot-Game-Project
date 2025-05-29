@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5oysde2linyp"]
+
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/PathTraitBtn.gd" id="1_6fgx5"]
+[ext_resource type="Texture2D" uid="uid://clnjag5nbrasl" path="res://Pix n Stuff/In Use/emerald (9).PNG" id="2_hvxu8"]
+
+[node name="PathTraitBtn" type="Button"]
+custom_minimum_size = Vector2(48, 48)
+offset_right = 48.0
+offset_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_6fgx5")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hvxu8")
+expand_mode = 2
+
+[node name="UnavailableColor" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.415686)
+
+[node name="TakenColor" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.078, 0.52, 0.701961)

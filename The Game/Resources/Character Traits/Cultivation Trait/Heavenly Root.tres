@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterTrait" load_steps=2 format=3 uid="uid://c6ih2n6pl7xo4"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/CharacterTrait.gd" id="1_1sbg1"]
+
+[resource]
+script = ExtResource("1_1sbg1")
+myDisplayName = "Heavenly"
+myCost = 5
+myTraitCategory = "Cultivation"
+myTraitSubCategory = "Root"
+chooseOneFrom = true
+myDescription = "You own the extremely rare singular spiritual root, feeling the affinity towards only one specific element. This root type is often called Heavenly, because the one who posesses it will have high growth potential"

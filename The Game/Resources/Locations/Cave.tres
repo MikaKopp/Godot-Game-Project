@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Location" load_steps=3 format=3 uid="uid://sro1aotrvc3x"]
+
+[ext_resource type="Texture2D" uid="uid://bbml2mxkl3q2g" path="res://Pix n Stuff/In Use/424.png" id="1_lv57x"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/Location.gd" id="1_vcfwm"]
+
+[resource]
+script = ExtResource("1_vcfwm")
+displayName = "Cave"
+icon = ExtResource("1_lv57x")

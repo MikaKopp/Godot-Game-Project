@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0g74766smuga"]
+
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/calender_bar.gd" id="1_1xetn"]
+[ext_resource type="Texture2D" uid="uid://d3pnn0pfb6b3e" path="res://Pix n Stuff/In Use/435.png" id="1_2wnye"]
+
+[node name="CalenderBar" type="Node"]
+script = ExtResource("1_1xetn")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -359.0
+offset_bottom = 91.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="CalendarBarIcon" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_2wnye")
+
+[node name="CurrentDateLbl" type="Label" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Day/Month/Year"
+horizontal_alignment = 1

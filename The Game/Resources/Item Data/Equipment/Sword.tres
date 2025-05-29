@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://wvcbc6ta7s7v"]
+
+[ext_resource type="Texture2D" uid="uid://cs6htncs2t7lf" path="res://Pix n Stuff/In Use/Weapon_Sword_OneHanded_01.png" id="2_r8nxo"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/Equipment.gd" id="2_wkgep"]
+
+[resource]
+script = ExtResource("2_wkgep")
+stat_modifiers = {
+"charisma": 16,
+"luck": 15,
+"strength": 5,
+"willpower": 5
+}
+equipSlot = "Body Secondary"
+displayName = "Basic Sword +1"
+icon = ExtResource("2_r8nxo")
+maxStackSize = 1
+itemDescribtion = "This is just a basic sword but it has surprising stat effects, for some reason it is equipped on body instead of wielded on hand"
+itemValue = 1000
+itemRarity = "Uncommon"

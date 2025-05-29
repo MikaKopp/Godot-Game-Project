@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://spjk1p51n8tj"]
+
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/TileMapPlayer.gd" id="1_gh6i2"]
+[ext_resource type="Texture2D" uid="uid://by0lm30oqjc3h" path="res://icon.svg" id="2_efhlj"]
+
+[node name="TileMapPlayer" type="Node2D"]
+script = ExtResource("1_gh6i2")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_efhlj")

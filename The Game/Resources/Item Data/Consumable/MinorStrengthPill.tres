@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ConsumableItem" load_steps=4 format=3 uid="uid://cli1v7wps2qxh"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/ConsumableEffect.gd" id="1_fqk1e"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/ConsumableItem.gd" id="2_rpc1j"]
+[ext_resource type="Texture2D" uid="uid://nglcvyvgf0xk" path="res://Pix n Stuff/In Use/Metal_Beads_R.png" id="2_x2qif"]
+
+[resource]
+script = ExtResource("2_rpc1j")
+stat_modifiers = {
+"strength": 5
+}
+consumeEffects = Array[ExtResource("1_fqk1e")]([])
+displayName = "Minor Strength Pill"
+icon = ExtResource("2_x2qif")
+maxStackSize = 99
+itemDescribtion = "This pill will boost your strength slightly"
+itemValue = 100
+itemRarity = "Rare"

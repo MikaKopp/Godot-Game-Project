@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmln8p4q184bc"]
+
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/RealmLbl.gd" id="1_foyt3"]
+
+[node name="RealmLbl" type="Label"]
+text = "Realm 1"
+script = ExtResource("1_foyt3")

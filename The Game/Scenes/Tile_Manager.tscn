@@ -1,0 +1,11 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8s2ugbb7vh4w"]
+
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/TileManager.gd" id="1_ki4xq"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/Location.gd" id="2_gbv5m"]
+[ext_resource type="Resource" uid="uid://sro1aotrvc3x" path="res://Resources/Locations/Cave.tres" id="3_al2on"]
+[ext_resource type="Resource" uid="uid://db7su7j2lyjt0" path="res://Resources/Locations/Temple.tres" id="4_o3g6v"]
+[ext_resource type="Resource" uid="uid://bdqecile7ocpl" path="res://Resources/Locations/Village.tres" id="5_oh1q1"]
+
+[node name="TileManager" type="Node"]
+script = ExtResource("1_ki4xq")
+locationPool = Array[ExtResource("2_gbv5m")]([ExtResource("3_al2on"), ExtResource("4_o3g6v"), ExtResource("5_oh1q1")])

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterTrait" load_steps=2 format=3 uid="uid://pl65plmsqhsd"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/CharacterTrait.gd" id="1_4iuhb"]
+
+[resource]
+script = ExtResource("1_4iuhb")
+myDisplayName = "Crippled Leg"
+myCost = -2
+myTraitCategory = "Physique"
+myTraitSubCategory = "Body"
+chooseOneFrom = false
+myDescription = "Either you were born with it, acquired it in an accident or through someone's hostile action. In any case, you now have a crippled leg that will hinder your movement and actions"

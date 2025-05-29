@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://5kt5ixkt8p1f"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/Item.gd" id="1_4g7vh"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/ConsumableEffect.gd" id="1_8pi68"]
+[ext_resource type="Texture2D" uid="uid://b1dhvcgr0vois" path="res://Pix n Stuff/In Use/Sticks_R.png" id="1_hsiuf"]
+
+[resource]
+script = ExtResource("1_4g7vh")
+displayName = "Stick"
+icon = ExtResource("1_hsiuf")
+maxStackSize = 99
+consumeEffects = Array[ExtResource("1_8pi68")]([])
+itemDescribtion = "Just a stick, if only you had a dog... That would give this some uses"
+itemValue = 100
+itemRarity = "Mundane"

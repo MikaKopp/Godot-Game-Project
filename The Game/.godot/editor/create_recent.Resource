@@ -1,0 +1,8 @@
+ConsumableItem
+Equipment
+MethodTrait
+CharacterTrait
+Location
+CultivationMethod
+ConsumableEffect
+Item

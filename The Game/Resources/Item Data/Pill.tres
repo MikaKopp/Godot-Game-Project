@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://pn01blty7ndh"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/ConsumableEffect.gd" id="1_58jto"]
+[ext_resource type="Texture2D" uid="uid://00eclibrv0qs" path="res://Pix n Stuff/In Use/Sulphur_R.png" id="1_hb6ch"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/Item.gd" id="1_rneql"]
+
+[resource]
+script = ExtResource("1_rneql")
+displayName = "Pill"
+icon = ExtResource("1_hb6ch")
+maxStackSize = 99
+consumeEffects = Array[ExtResource("1_58jto")]([])
+itemDescribtion = "Cultivation pill that gives you 100 cultivation xp"
+itemValue = 100
+itemRarity = "Uncommon"

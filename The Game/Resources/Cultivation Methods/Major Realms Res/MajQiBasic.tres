@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MajorStage" load_steps=6 format=3 uid="uid://cbtrmodlxv7oe"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/MinorRealm.gd" id="2_mbme4"]
+[ext_resource type="Resource" uid="uid://bgwxur7ldd7ar" path="res://Resources/Cultivation Methods/Minor Realm Res/QiLowBasic.tres" id="3_5a4ty"]
+[ext_resource type="Resource" uid="uid://cj88gw7pb2ewo" path="res://Resources/Cultivation Methods/Minor Realm Res/QiMedBasic.tres" id="4_c2bab"]
+[ext_resource type="Resource" uid="uid://bsn3r57y4yti5" path="res://Resources/Cultivation Methods/Minor Realm Res/QiPeakBasic.tres" id="5_x0b20"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/MajorRealm.gd" id="6_rkyp5"]
+
+[resource]
+script = ExtResource("6_rkyp5")
+displayName = "Qi Refinement"
+myMinorStages = Array[ExtResource("2_mbme4")]([ExtResource("3_5a4ty"), ExtResource("4_c2bab"), ExtResource("5_x0b20")])

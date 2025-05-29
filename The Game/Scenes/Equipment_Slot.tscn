@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://x38tw6b5se30"]
+
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/EquipmentSlot.gd" id="1_1h8hn"]
+[ext_resource type="Texture2D" uid="uid://dgc8auysh3kmy" path="res://Pix n Stuff/GUI/citadel-rpg-gui/Citadel RPG GUI/Sliced/Box - Character Sheet/Slots/empty_amulet.png" id="1_vvnc5"]
+
+[node name="EquipmentSlot" type="Button"]
+custom_minimum_size = Vector2(96, 96)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1824.0
+offset_bottom = -984.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_1h8hn")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_vvnc5")
+expand_mode = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

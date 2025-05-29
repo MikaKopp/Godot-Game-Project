@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Location" load_steps=3 format=3 uid="uid://db7su7j2lyjt0"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/Location.gd" id="1_1impf"]
+[ext_resource type="Texture2D" uid="uid://1pig7r30bv6g" path="res://Pix n Stuff/In Use/1458.png" id="1_yh186"]
+
+[resource]
+script = ExtResource("1_1impf")
+displayName = "Temple"
+icon = ExtResource("1_yh186")

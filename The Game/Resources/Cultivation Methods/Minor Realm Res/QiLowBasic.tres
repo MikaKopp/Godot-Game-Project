@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MinorStage" load_steps=2 format=3 uid="uid://bgwxur7ldd7ar"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/MinorRealm.gd" id="3_iyphr"]
+
+[resource]
+script = ExtResource("3_iyphr")
+displayName = "Low Stage"
+xpToLevel = 1000

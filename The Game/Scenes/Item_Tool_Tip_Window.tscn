@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://dybvnqe2mqpse"]
+
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/ItemToolTipWindow.gd" id="1_5tlgw"]
+
+[node name="ItemToolTipWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("1_5tlgw")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(384, 384)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="NameLbl" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "MY NAME"
+
+[node name="DescribtionLbl" type="Label" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(384, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "This will contain item description"
+autowrap_mode = 3
+
+[node name="BottomBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ValueLbl" type="Label" parent="PanelContainer/VBoxContainer/BottomBox"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 16
+text = "Item Value: 99"
+
+[node name="RarityLbl" type="Label" parent="PanelContainer/VBoxContainer/BottomBox"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 16
+text = "Rarity: Common"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 122.696
+one_shot = true

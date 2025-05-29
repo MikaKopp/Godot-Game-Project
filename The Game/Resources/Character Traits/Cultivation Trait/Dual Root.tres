@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterTrait" load_steps=2 format=3 uid="uid://d2w8y3oej0ojk"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/CharacterTrait.gd" id="1_c11p0"]
+
+[resource]
+script = ExtResource("1_c11p0")
+myDisplayName = "Dual"
+myCost = 3
+myTraitCategory = "Cultivation"
+myTraitSubCategory = "Root"
+chooseOneFrom = true
+myDescription = "You own rare dual spiritual root, feeling the affinity towards two different elements"

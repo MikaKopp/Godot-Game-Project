@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7hmwc1wgswx1"]
+
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/PlayerBase.gd" id="1_2a4jd"]
+[ext_resource type="Texture2D" uid="uid://dg3bvvf51b0j2" path="res://Pix n Stuff/In Use/background.png" id="2_25e1q"]
+[ext_resource type="PackedScene" uid="uid://bb6r1oi2vvi7r" path="res://Scenes/Cultivate_Window.tscn" id="4_5r2xt"]
+
+[node name="PlayerBase" type="Node2D"]
+script = ExtResource("1_2a4jd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer"]
+scale = Vector2(0.468506, 0.263428)
+texture = ExtResource("2_25e1q")
+centered = false
+
+[node name="ControlButtons" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -207.0
+offset_top = -221.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CultivateBtn" type="Button" parent="CanvasLayer/ControlButtons"]
+layout_mode = 2
+text = "Cultivate"
+
+[node name="Button2" type="Button" parent="CanvasLayer/ControlButtons"]
+layout_mode = 2
+text = "Action
+"
+
+[node name="Button3" type="Button" parent="CanvasLayer/ControlButtons"]
+layout_mode = 2
+text = "Action
+"
+
+[node name="BackToWorld" type="Button" parent="CanvasLayer/ControlButtons"]
+layout_mode = 2
+text = "Back
+"
+
+[node name="CultivateWindow" parent="CanvasLayer" instance=ExtResource("4_5r2xt")]
+
+[connection signal="pressed" from="CanvasLayer/ControlButtons/CultivateBtn" to="." method="_on_cultivate_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/ControlButtons/BackToWorld" to="." method="_on_back_to_world_pressed"]

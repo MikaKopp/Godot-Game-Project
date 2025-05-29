@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://clxccq1whi1ua"]
+
+[ext_resource type="PackedScene" uid="uid://df34fu2rlyhkj" path="res://Scenes/Game_Manager.tscn" id="1_fp8mp"]
+[ext_resource type="PackedScene" uid="uid://cmaqb0cx6pear" path="res://Scenes/player.tscn" id="2_5jbeh"]
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/Camera2d.gd" id="2_ebsen"]
+[ext_resource type="PackedScene" uid="uid://b8s2ugbb7vh4w" path="res://Scenes/Tile_Manager.tscn" id="2_gq2bs"]
+[ext_resource type="PackedScene" uid="uid://cdn38de6vqq0" path="res://Scenes/Slide_Panel_Location.tscn" id="3_cjach"]
+[ext_resource type="PackedScene" uid="uid://bos0520e6bmsm" path="res://Scenes/world.tscn" id="3_isvt1"]
+[ext_resource type="PackedScene" uid="uid://b0g74766smuga" path="res://Scenes/calender_bar.tscn" id="3_msgvi"]
+[ext_resource type="PackedScene" uid="uid://b7hmwc1wgswx1" path="res://Scenes/Player_Base.tscn" id="4_db0ir"]
+[ext_resource type="PackedScene" uid="uid://3fiua2wuccff" path="res://Scenes/Tile_Info_Window.tscn" id="8_6411k"]
+
+[node name="Main" type="Node2D"]
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("camera", "player", "world", "playerBase", "tileManager", "tileInfoWindow") instance=ExtResource("1_fp8mp")]
+camera = NodePath("../Camera2D")
+player = NodePath("../CanvasLayer/Player")
+world = NodePath("../World")
+playerBase = NodePath("../PlayerBase")
+tileManager = NodePath("../TileManager")
+tileInfoWindow = NodePath("../CanvasLayer/TileInfoWindow")
+
+[node name="TileManager" parent="." node_paths=PackedStringArray("tileInfoWindow") instance=ExtResource("2_gq2bs")]
+locationPanelSlide = ExtResource("3_cjach")
+tileInfoWindow = NodePath("../CanvasLayer/TileInfoWindow")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_ebsen")
+
+[node name="PlayerBase" parent="." node_paths=PackedStringArray("gameManager", "calendarBar") instance=ExtResource("4_db0ir")]
+visibility_layer = 2
+gameManager = NodePath("../GameManager")
+calendarBar = NodePath("../CanvasLayer/CalenderBar")
+
+[node name="World" parent="." node_paths=PackedStringArray("tileManager") instance=ExtResource("3_isvt1")]
+tileManager = NodePath("../TileManager")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CalenderBar" parent="CanvasLayer" node_paths=PackedStringArray("gameManager") instance=ExtResource("3_msgvi")]
+gameManager = NodePath("../../GameManager")
+
+[node name="TileInfoWindow" parent="CanvasLayer" instance=ExtResource("8_6411k")]
+
+[node name="Player" parent="CanvasLayer" instance=ExtResource("2_5jbeh")]

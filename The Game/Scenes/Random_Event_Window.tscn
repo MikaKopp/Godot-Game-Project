@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://pe126hkpdhug"]
+
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/RandomEventWindow.gd" id="1_gff32"]
+[ext_resource type="PackedScene" uid="uid://b515orytlcyeb" path="res://Scenes/Event_Choice_Btn.tscn" id="1_jmmf7"]
+
+[node name="EventWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gff32")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="EventChoiceBtn" parent="PanelContainer/VBoxContainer/ScrollContainer2/VBoxContainer" instance=ExtResource("1_jmmf7")]
+layout_mode = 2
+
+[node name="EventChoiceBtn2" parent="PanelContainer/VBoxContainer/ScrollContainer2/VBoxContainer" instance=ExtResource("1_jmmf7")]
+layout_mode = 2
+
+[node name="EventChoiceBtn3" parent="PanelContainer/VBoxContainer/ScrollContainer2/VBoxContainer" instance=ExtResource("1_jmmf7")]
+layout_mode = 2
+
+[node name="EventChoiceBtn4" parent="PanelContainer/VBoxContainer/ScrollContainer2/VBoxContainer" instance=ExtResource("1_jmmf7")]
+layout_mode = 2
+
+[node name="EventChoiceBtn5" parent="PanelContainer/VBoxContainer/ScrollContainer2/VBoxContainer" instance=ExtResource("1_jmmf7")]
+layout_mode = 2
+
+[node name="EventChoiceBtn6" parent="PanelContainer/VBoxContainer/ScrollContainer2/VBoxContainer" instance=ExtResource("1_jmmf7")]
+layout_mode = 2
+
+[node name="EventChoiceBtn7" parent="PanelContainer/VBoxContainer/ScrollContainer2/VBoxContainer" instance=ExtResource("1_jmmf7")]
+layout_mode = 2

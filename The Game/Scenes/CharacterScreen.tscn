@@ -1,0 +1,131 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf7tngurq4kko"]
+
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/CharacterScreen.gd" id="1_wwjiq"]
+
+[node name="CharacterScreen" type="Node"]
+script = ExtResource("1_wwjiq")
+
+[node name="CharacterWindow" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -280.0
+offset_right = 280.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScreenSplit" type="HBoxContainer" parent="CharacterWindow"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -270.0
+offset_right = 270.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CharacterWindow/ScreenSplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeftInfo" type="Label" parent="CharacterWindow/ScreenSplit/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Tanne:
+Lifespan
+Cult xp
+Cultivation level & stage"
+
+[node name="Control" type="Control" parent="CharacterWindow/ScreenSplit/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CultivationRealmLbl2" type="Label" parent="CharacterWindow/ScreenSplit/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Current Cultivation Stage:"
+
+[node name="CultivationRealmMajorLbl" type="Label" parent="CharacterWindow/ScreenSplit/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Test Late Test"
+
+[node name="CultivationRealmMinorLbl" type="Label" parent="CharacterWindow/ScreenSplit/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Test Late Test"
+
+[node name="CultivationXpLbl" type="Label" parent="CharacterWindow/ScreenSplit/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Cultivation Progress 99/99999"
+
+[node name="LifeSpanLbl" type="Label" parent="CharacterWindow/ScreenSplit/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Remaining Lifespan: 0"
+
+[node name="GridContainer2" type="GridContainer" parent="CharacterWindow/ScreenSplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CultivationStatToggle" type="Button" parent="CharacterWindow/ScreenSplit/GridContainer2"]
+layout_mode = 2
+text = "Cultivation Stats"
+
+[node name="Label" type="Label" parent="CharacterWindow/ScreenSplit/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cultivation speed: "
+
+[node name="Label2" type="Label" parent="CharacterWindow/ScreenSplit/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Text2"
+
+[node name="Label3" type="Label" parent="CharacterWindow/ScreenSplit/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Text3"
+
+[node name="Label4" type="Label" parent="CharacterWindow/ScreenSplit/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Text4"
+
+[node name="CombatStatToggle" type="Button" parent="CharacterWindow/ScreenSplit/GridContainer2"]
+layout_mode = 2
+text = "Combat Stats"
+
+[node name="Label5" type="Label" parent="CharacterWindow/ScreenSplit/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cultivation speed: "
+
+[node name="Label6" type="Label" parent="CharacterWindow/ScreenSplit/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Text2"
+
+[node name="Label7" type="Label" parent="CharacterWindow/ScreenSplit/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Text3"
+
+[node name="Label8" type="Label" parent="CharacterWindow/ScreenSplit/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Text4"

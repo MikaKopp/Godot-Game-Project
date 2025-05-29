@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://dpirlxg3tpkot"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/Item.gd" id="1_2gqty"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/ConsumableEffect.gd" id="1_xvguf"]
+[ext_resource type="Resource" uid="uid://d2fxypqtyxv73" path="res://Resources/Item Data/Consumable Item Effects/MinorCultivationBoost.tres" id="2_2lv30"]
+[ext_resource type="Texture2D" uid="uid://nglcvyvgf0xk" path="res://Pix n Stuff/In Use/Metal_Beads_R.png" id="3_tmb7r"]
+
+[resource]
+script = ExtResource("1_2gqty")
+displayName = "Minor Cultivation Pill"
+icon = ExtResource("3_tmb7r")
+maxStackSize = 99
+consumable = true
+equippable = false
+consumeEffects = Array[ExtResource("1_xvguf")]([ExtResource("2_2lv30")])
+itemDescribtion = "Cultivation pill that gives 100 cultivation xp on use"
+itemValue = 6969
+itemRarity = "Rare"

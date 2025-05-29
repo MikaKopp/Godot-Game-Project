@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterTrait" load_steps=2 format=3 uid="uid://bjybojxe4cxu7"]
+
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/CharacterTrait.gd" id="1_3ucy0"]
+
+[resource]
+script = ExtResource("1_3ucy0")
+myDisplayName = "Hermit"
+myCost = 3
+myTraitCategory = "Encounter"
+myTraitSubCategory = ""
+chooseOneFrom = false
+myDescription = "You met a hermit during your younger years and he taught you some basic practice moves. That created better foundation for your future training"

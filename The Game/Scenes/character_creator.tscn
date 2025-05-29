@@ -1,0 +1,198 @@
+[gd_scene load_steps=9 format=3 uid="uid://cyo2y0r1i2h03"]
+
+[ext_resource type="Texture2D" uid="uid://cu8m4vyhlf3go" path="res://Pix n Stuff/In Use/MainMenu.jpg" id="1_mb2pe"]
+[ext_resource type="Script" path="res://Scripts/Scene Scripts/CharacterCreator.gd" id="1_omydh"]
+[ext_resource type="Script" path="res://Scripts/Resources Scripts/CharacterTrait.gd" id="2_kf6j1"]
+[ext_resource type="Resource" uid="uid://bd2muakilqblh" path="res://Resources/Character Traits/Background Traits/Beggar.tres" id="3_cju5n"]
+[ext_resource type="Resource" uid="uid://d2w8y3oej0ojk" path="res://Resources/Character Traits/Cultivation Trait/Dual Root.tres" id="4_dx64a"]
+[ext_resource type="Resource" uid="uid://c6ih2n6pl7xo4" path="res://Resources/Character Traits/Cultivation Trait/Heavenly Root.tres" id="5_rhlgw"]
+[ext_resource type="Resource" uid="uid://bjybojxe4cxu7" path="res://Resources/Character Traits/Encounter Traits/Hermit.tres" id="6_u3qce"]
+[ext_resource type="Resource" uid="uid://pl65plmsqhsd" path="res://Resources/Character Traits/Physique Traits/Crippled Leg.tres" id="7_4bt8r"]
+
+[node name="CharacterCreator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_omydh")
+backgroundTraits = Array[ExtResource("2_kf6j1")]([ExtResource("3_cju5n")])
+cultivationTraits = Array[ExtResource("2_kf6j1")]([ExtResource("4_dx64a"), ExtResource("5_rhlgw")])
+physiqueTraits = Array[ExtResource("2_kf6j1")]([ExtResource("7_4bt8r")])
+encounterTraits = Array[ExtResource("2_kf6j1")]([ExtResource("6_u3qce")])
+
+[node name="CharacterCreatorBackground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mb2pe")
+
+[node name="CharacterCreatorHbox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterCreatorStoryVbox" type="VBoxContainer" parent="CharacterCreatorHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StoryPanel" type="Panel" parent="CharacterCreatorHbox/CharacterCreatorStoryVbox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterCreatorHbox/CharacterCreatorStoryVbox/StoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RemainingPointsLbl" type="Label" parent="CharacterCreatorHbox/CharacterCreatorStoryVbox/StoryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(480, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Remaining Trait Points: 000"
+autowrap_mode = 3
+
+[node name="StoryLbl" type="Label" parent="CharacterCreatorHbox/CharacterCreatorStoryVbox/StoryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(480, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Tänne tulee kuvaus kyvyistä ja jotain fluffia"
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="CharacterCreatorHbox/CharacterCreatorStoryVbox"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
+text = "Create Character"
+
+[node name="PreviousScreenBtn" type="Button" parent="CharacterCreatorHbox"]
+custom_minimum_size = Vector2(128, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Prev
+Page"
+
+[node name="TraitPickerContainer" type="VBoxContainer" parent="CharacterCreatorHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TraitSelectionContainer" type="HBoxContainer" parent="CharacterCreatorHbox/TraitPickerContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackgroundPanel" type="PanelContainer" parent="CharacterCreatorHbox/TraitPickerContainer/TraitSelectionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CharacterCreatorHbox/TraitPickerContainer/TraitSelectionContainer/BackgroundPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="FlowContainer" type="FlowContainer" parent="CharacterCreatorHbox/TraitPickerContainer/TraitSelectionContainer/BackgroundPanel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+last_wrap_alignment = 1
+
+[node name="CultivationPhysiquePanel" type="PanelContainer" parent="CharacterCreatorHbox/TraitPickerContainer/TraitSelectionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CultivationPhysiqueMargin" type="MarginContainer" parent="CharacterCreatorHbox/TraitPickerContainer/TraitSelectionContainer/CultivationPhysiquePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="CultivationPhysiqueFlow" type="FlowContainer" parent="CharacterCreatorHbox/TraitPickerContainer/TraitSelectionContainer/CultivationPhysiquePanel/CultivationPhysiqueMargin"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+last_wrap_alignment = 1
+
+[node name="PhysiquePanel" type="PanelContainer" parent="CharacterCreatorHbox/TraitPickerContainer/TraitSelectionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CultivationPhysiqueMargin" type="MarginContainer" parent="CharacterCreatorHbox/TraitPickerContainer/TraitSelectionContainer/PhysiquePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="CultivationPhysiqueFlow" type="FlowContainer" parent="CharacterCreatorHbox/TraitPickerContainer/TraitSelectionContainer/PhysiquePanel/CultivationPhysiqueMargin"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+last_wrap_alignment = 1
+
+[node name="EncounterPanel" type="PanelContainer" parent="CharacterCreatorHbox/TraitPickerContainer/TraitSelectionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CultivationPhysiqueMargin" type="MarginContainer" parent="CharacterCreatorHbox/TraitPickerContainer/TraitSelectionContainer/EncounterPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="CultivationPhysiqueFlow" type="FlowContainer" parent="CharacterCreatorHbox/TraitPickerContainer/TraitSelectionContainer/EncounterPanel/CultivationPhysiqueMargin"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+last_wrap_alignment = 1
+
+[node name="TraitInfoContainer" type="PanelContainer" parent="CharacterCreatorHbox/TraitPickerContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TraitMargin" type="MarginContainer" parent="CharacterCreatorHbox/TraitPickerContainer/TraitInfoContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TraitInfoLbl" type="Label" parent="CharacterCreatorHbox/TraitPickerContainer/TraitInfoContainer/TraitMargin"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Explanation about property choice go here"
+autowrap_mode = 3
+
+[node name="NextScreenBtn" type="Button" parent="CharacterCreatorHbox"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Next 
+Page"
+
+[connection signal="pressed" from="CharacterCreatorHbox/PreviousScreenBtn" to="." method="_on_previous_screen_btn_pressed"]
+[connection signal="pressed" from="CharacterCreatorHbox/NextScreenBtn" to="." method="_on_next_screen_btn_pressed"]
